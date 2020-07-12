@@ -1,2 +1,8 @@
-//download react and setup the init project
+#download react and setup the init project
 npx create-react-app .
+
+#build the project
+npm run build
+
+#run the project in the browser
+npm start
