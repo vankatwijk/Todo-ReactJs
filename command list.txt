@@ -6,3 +6,6 @@ npm run build
 
 #run the project in the browser
 npm start
+
+#generate ids
+npm i uuid
