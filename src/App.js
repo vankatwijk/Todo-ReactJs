@@ -25,10 +25,15 @@ function App() {
     setTodos(newTodos)
   }
 
+  function handleClearTodos(){
+    const newTodos = todos.filter(todo => !todo.complete)
+    setTodos(newTodos)
+  }
+
   useEffect(() =>{
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
     if(storedTodos) setTodos(storedTodos)
-  }, [])
+  }, [])// similar to created in vue // will take effect when the page is created
 
   useEffect(() =>{
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
@@ -39,7 +44,7 @@ function App() {
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Completed</button>
+      <button onClick={handleClearTodos}>Clear Completed</button>
       <div>{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   )
