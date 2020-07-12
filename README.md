@@ -8,6 +8,9 @@ Todo list created with react
 
 ## Features
 ```
+Add todo
+mark todo as done
+clear todos which are marked as done
 ```
 
 ## Getting Started
@@ -23,11 +26,13 @@ After you clone this project, do the following:
 
 ```bash
 
+npm install
+
 ```
 
 ## Debuging
-```bash
-check the command list.txt file for a list of commands used in development .
+```
+check the command-list.txt file for a list of commands used in development .
 ```
 
 ## Running the tests
