@@ -1,0 +1,2 @@
+//download react and setup the init project
+npx create-react-app .
