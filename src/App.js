@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import TodoList from './TodoList'
 import uuidv4 from 'uuid/dist/v4'
+
+const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App() {
   const [todos,setTodos] = useState([])
@@ -15,6 +17,15 @@ function App() {
     })
     todoNameRef.current.value = null
   }
+  useEffect(() =>{
+    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    if(storedTodos) setTodos(storedTodos)
+  }, [])
+
+  useEffect(() =>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+  }, [todos]) // similar to a deep watcher in vue / on everychange it stores in the localstorage
+
   return (
     <>
       <TodoList todos={todos} />
